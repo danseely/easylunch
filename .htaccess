@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !webroot/
+RewriteRule ^(.*)$ /webroot/$1 [L]
