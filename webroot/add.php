@@ -4,26 +4,8 @@
 	 
   <?php
     
-    include_once('../modules/db.php');
+    //include_once('../modules/db.php');
     
-    if (!isset($_SERVER['PHP_AUTH_USER'])) {
-        echo '<h1>not set</h1>';
-        header('WWW-Authenticate: Basic realm="My Realm"');
-        header('HTTP/1.0 401 Unauthorized');
-        echo 'Text to send if user hits Cancel button';
-        exit;
-    } else {
-        echo '<h1>set, checking...</h1>';
-        $username = $_SERVER['PHP_AUTH_USER'];
-        $hashedPassword = md5($_SERVER['PHP_AUTH_PW']);  
-        $result = db_queryonerow("SELECT COUNT(*) as num FROM users WHERE username = '$username' AND password = '$hashedPassword'");  
-  
-        if($result['num'] != 0) {  
-            // check input against user db
-        } else {  
-            header('HTTP/1.0 401 Unauthorized'); 
-        } 
-    }
   ?>
 	 
   <meta charset="UTF-8">
